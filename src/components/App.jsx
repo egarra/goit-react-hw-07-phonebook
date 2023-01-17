@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 
 export const App = () => {
-  const contacts = useSelector(state => state.contacts.contacts)
+  const { status, error } = useSelector(state => state.contacts)
   return (
     <>
       <Section title="Phonebook">
@@ -14,7 +14,8 @@ export const App = () => {
       </Section>
       <Section title="Contacts">
         <Filter/>
-      {contacts.length > 0 && <Contacts/>}
+      {status === 'loading' && <h2>Loading...</h2>}
+      <Contacts/>
       </Section>
     </>
   );

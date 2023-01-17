@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { InputForm, Btn, InputField } from './Form.styled';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
+import { addFetchedContact } from 'redux/contactsSlice';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const Form = () => {
@@ -32,8 +32,8 @@ export const Form = () => {
       number,
       id: nanoid(),
     };
-    const action = addContact(contact);
-    dispatch(action);
+    
+    dispatch(addFetchedContact(contact));
     e.target.reset();
   }
 
