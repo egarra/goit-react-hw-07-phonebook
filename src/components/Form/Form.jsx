@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { InputForm, Btn, InputField } from './Form.styled';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { addFetchedContact } from 'redux/contactsSlice';
+import { addFetchedContact } from 'redux/operations'; 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const Form = () => {

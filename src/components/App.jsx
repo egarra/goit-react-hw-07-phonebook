@@ -3,18 +3,19 @@ import { Form } from './Form/Form';
 import { Contacts } from './Contacts/Contacts';
 import { Filter } from './Filter/Filter';
 import { useSelector } from 'react-redux';
+import { Loader } from './Loader/Loader';
 
 
 export const App = () => {
-  const { status, error } = useSelector(state => state.contacts)
+  const { status } = useSelector(state => state.contacts)
   return (
     <>
       <Section title="Phonebook">
         <Form />
       </Section>
+      {status === 'loading' && <Loader/>}
       <Section title="Contacts">
         <Filter/>
-      {status === 'loading' && <h2>Loading...</h2>}
       <Contacts/>
       </Section>
     </>
